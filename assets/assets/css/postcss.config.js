@@ -5,7 +5,7 @@ module.exports = {
     require("postcss-import")({
       path: [themeDir],
     }),
-    require("tailwindcss")(themeDir + "assets/assets/css/tailwind.config.js"),
+    require("tailwindcss")(`${themeDir}assets/assets/css/tailwind.config.js`),
     require("autoprefixer")({
       path: [themeDir],
     }),
