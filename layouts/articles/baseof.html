@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}"
+    dir="{{ or site.Language.LanguageDirection `ltr` }}">
+
+<head>
+    {{ partial "head.html" . }}
+    {{ partial "head/single.html" . }}
+</head>
+
+<body class="bg-gray-50">
+    {{ partial "fork.html" . }}
+    {{ $isBlog := or (eq .Kind "taxonomy") (eq .Kind "term") (eq .Kind "section") (and (eq .Type "posts") (eq .Kind
+    "page")) (eq .Type "articles")
+    }}
+    <container class="container flex flex-col h-screen mx-auto">
+        <header class="w-100 sm:w-3/4 h-fit flex flex-col mx-auto my-16">
+            {{ partial "header.html" . }}
+            {{ if $isBlog }}
+            {{ partial "blog-navigation.html" . }}
+            {{ end }}
+        </header>
+        <main class="w-100 sm:w-3/4 flex flex-col mx-auto">
+            {{ block "main" . }}{{ end }}
+        </main>
+        <footer class="w-100 h-fit flex mb-3 justify-center">
+            {{ partial "footer.html" . }}
+        </footer>
+    </container>
+
+    {{ partial "footer/analytics.html" . }}
+    {{ partialCached "footer/js.html" . }}
+</body>
+
+</html>
