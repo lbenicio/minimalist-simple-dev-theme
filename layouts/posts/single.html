@@ -1,5 +1,9 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
+<div id="table-of-contents">
+    <h6>Table of Contents</h6>
+    {{ .TableOfContents }}
+</div>
 {{ .Content }}
 {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 <nav class="mt-5">

@@ -73,3 +73,8 @@ div#pagination {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+nav#TableOfContents > ul {
+    list-style-type: disc;
+    list-style-position: inside;
+}
