@@ -5,17 +5,17 @@
 }}
 
 {{- if eq hugo.Environment "development" }}
-    {{ $styles := $styles
-    | resources.ExecuteAsTemplate "/assets/css/main.style.css" "style"
-    }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-    <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}">
+{{ $styles := $styles
+| resources.ExecuteAsTemplate "/assets/css/main.style.css" "style"
+}}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+<link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}">
 {{- else }}
-    
-    {{ $styles := $styles | minify | fingerprint }}
-    {{ $fontawesome := $fontawesome | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}" integrity="{{ $fontawesome.Data.Integrity }}"
-        crossorigin="anonymous">
+
+{{ $styles := $styles | minify | fingerprint }}
+{{ $fontawesome := $fontawesome | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
+    crossorigin="anonymous">
+<link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}" integrity="{{ $fontawesome.Data.Integrity }}"
+    crossorigin="anonymous">
 {{- end }}
