@@ -3,10 +3,8 @@
 | postCSS (dict "config" "./assets/assets/css/postcss.config.js")
 }}
 {{- if eq hugo.Environment "development" }}
-    {{ $styles := $styles
-    | resources.ExecuteAsTemplate "/assets/css/main.style.css" "style"
-    }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    {{ $styles := $styles | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{- else }}
     {{ $styles = $styles | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
