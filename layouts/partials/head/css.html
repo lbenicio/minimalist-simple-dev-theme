@@ -1,0 +1,17 @@
+{{ $styles := resources.Get "assets/css/main.style.scss"
+| toCSS
+| postCSS (dict "config" "./assets/assets/css/postcss.config.js")
+| resources.ExecuteAsTemplate "/assets/css/main.style.css" "style"
+}}
+
+{{ $fontawesome := resources.Get "assets/css/fontawesome.css" }}
+
+{{- if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}">
+{{- else }}
+    {{- with . | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+{{- end }}

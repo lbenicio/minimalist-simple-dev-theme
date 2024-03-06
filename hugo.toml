@@ -1,0 +1,65 @@
+baseURL = 'https://example.org/'
+
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+description = 'A minimal website/blog theme for developers. It is a simple and clean theme for developers who want to showcase their work and write about their experiences.'
+
+paginate = 2
+
+[[menus.main]]
+name = 'Home'
+url = '/'
+weight = 10
+pre = 'fas fa-home'
+
+[[menus.main]]
+name = 'About me'
+url = '/aboutme'
+weight = 20
+pre = 'fas fa-address-card'
+
+[[menus.main]]
+name = 'Contact'
+url = '/contact'
+weight = 30
+pre = 'fas fa-envelope-open'
+
+[[menus.main]]
+name = 'Articles'
+url = '/articles'
+weight = 40
+pre = 'fas fa-comment-alt'
+
+[params]
+  author = 'Leonardo Benicio'
+  email = 'hello@lbenicio.dev'
+
+  [params.social]
+    [params.social.twitter]
+      username = 'twitter'
+      instance = 'twitter.com'
+      icon = 'fab fa-twitter'
+      visible = true
+    [params.social.github]
+      username = 'github'
+      instance = 'github.com'
+      icon = 'fab fa-github'
+      visible = true
+    [params.social.linkedin]
+      username = 'linkedin'
+      instance = 'linkedin.com'
+      icon = 'fab fa-linkedin-in'
+      visible = true
+    [params.social.mastodon]
+      username = 'mastodon'
+      instance = 'mastodon.social'
+      visible = false
+      icon = 'fab fa-mastodon'
+
+[analytics]
+  google = "UA-123456789-1"
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"

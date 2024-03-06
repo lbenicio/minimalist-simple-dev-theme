@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+<nav class="mt-5">
+    <ul class="flex justify-between">
+        {{ if .PrevInSection }}
+        <li><a href="{{ .PrevInSection.Permalink }}"> <<< Previous</a></li>
+        {{ end }}
+        {{ if .NextInSection }}
+            <li class="justify-self-end"><a href="{{ .NextInSection.Permalink }}">Next >>></a></li>
+        {{ end }}
+    </ul>
+</nav>
+{{ end }}

@@ -1,0 +1,14 @@
+{{- if not (eq hugo.Environment "development") }}
+<script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google }}"
+>
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', '{{ site.analytics.google }}');
+</script>
+{{- end }}

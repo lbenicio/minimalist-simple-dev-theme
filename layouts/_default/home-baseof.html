@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}"
+    dir="{{ or site.Language.LanguageDirection `ltr` }}">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body class="bg-gray-50">
+    {{ partial "fork.html" . }}
+    <container class="container flex flex-col h-screen mx-auto">
+        <header class="w-100 sm:w-3/4 h-fit flex flex-col mx-auto my-auto">
+            {{ partial "header.html" . }}
+        </header>
+        <main class="w-100 sm:w-3/4 flex flex-col mx-auto">
+            {{ block "main" . }}{{ end }}
+        </main>
+        <footer class="w-100 h-fit flex mb-3 justify-center">
+            {{ partial "footer.html" . }}
+        </footer>
+    </container>
+
+    {{ partial "footer/analytics.html" . }}
+    {{ partialCached "footer/js.html" . }}
+</body>
+
+</html>

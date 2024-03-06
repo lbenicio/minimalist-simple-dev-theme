@@ -1,0 +1,75 @@
+@import "node_modules/tailwindcss/base";
+@import "node_modules/tailwindcss/components";
+@import "node_modules/tailwindcss/utilities";
+
+body {
+    font-family: 'Roboto Mono', monospace;
+}
+
+nav#menu:before,
+nav#social:before,
+nav#blog-navigation:before {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid rgb(156, 163, 175);
+    width: 20px;
+    transform: rotate(45deg);
+    transform-origin: 0% 0%;
+    left: calc(50% - 1px);
+    
+    flex: 1;
+    background-color: white;
+    height: 20px;
+    background-color: rgb(249, 250, 251);
+}
+
+nav#menu:after,nav#social:after, nav#blog-navigation:after {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid rgb(156, 163, 175);
+    width: 20px;
+    transform: rotate(45deg);
+    transform-origin: 0% 0%;
+    left: calc(50% + 1px);
+    background-color: rgb(249, 250, 251);
+}
+
+nav#blog-navigation:after {
+    margin-top: 0.8em;
+}
+
+nav#blog-navigation:before {
+    margin-top: 1.5em;
+}
+
+nav#menu:after {
+    margin-top: -3.2em;
+}
+
+nav#menu:before {
+    margin-top: -2.6em;
+}
+
+nav#social:after {
+    margin-top: 0.9rem;
+}
+
+nav#social:before {
+    margin-top: 1.5rem;
+}
+
+div#pagination > ul.pagination {
+    display: flex;
+    margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+}
+
+div#pagination > ul > li.page-item {
+    margin-left: 1rem;
+}
+
+div#pagination {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
