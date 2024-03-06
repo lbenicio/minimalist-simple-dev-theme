@@ -1,7 +1,7 @@
 {{- if not (eq hugo.Environment "development") }}
 <script
     async
-    src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google }}"
+    src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.analytics.google }}"
 >
 </script>
 <script>
@@ -9,6 +9,6 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', '{{ site.analytics.google }}');
+    gtag('config', '{{ .Site.Params.analytics.google }}');
 </script>
 {{- end }}

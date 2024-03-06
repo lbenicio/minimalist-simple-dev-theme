@@ -1,12 +1,13 @@
 {{ $styles := resources.Get "assets/css/single.style.scss"
 | toCSS
 | postCSS (dict "config" "./assets/assets/css/postcss.config.js")
-| resources.ExecuteAsTemplate "/assets/css/single.style.css" "style"
 }}
 {{- if eq hugo.Environment "development" }}
+    {{ $styles := $styles
+    | resources.ExecuteAsTemplate "/assets/css/main.style.css" "style"
+    }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 {{- else }}
-    {{- with . | minify | fingerprint }}
-        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{- end }}
+    {{ $styles = $styles | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
 {{- end }}

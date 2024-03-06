@@ -48,6 +48,9 @@ pre = 'fas fa-comment-alt'
   author = 'Leonardo Benicio'
   email = 'hello@lbenicio.dev'
 
+  [params.analytics]
+    google = "UA-123456789-1"
+
   [params.social]
     [params.social.twitter]
       username = 'twitter'
@@ -69,6 +72,3 @@ pre = 'fas fa-comment-alt'
       instance = 'mastodon.social'
       visible = false
       icon = 'fab fa-mastodon'
-
-[analytics]
-  google = "UA-123456789-1"
