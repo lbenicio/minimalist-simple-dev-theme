@@ -5,6 +5,7 @@
     {{ .TableOfContents }}
 </div>
 {{ .Content }}
+{{ partialCached "blog-conclusion.html" . }}
 {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 <nav class="mt-5">
     <ul class="flex justify-between">
