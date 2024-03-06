@@ -5,6 +5,7 @@
   {{ partial "head/single.html" . }}
 </head>
 <body class="bg-gray-50">
+  
   {{ partial "fork.html" . }}
   {{ $isBlog := or (eq .Kind "taxonomy") (eq .Kind "term") (eq .Kind "section") (and (eq .Type "posts") (eq .Kind "page"))
   }}
