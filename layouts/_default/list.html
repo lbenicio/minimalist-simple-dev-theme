@@ -1,7 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ $isIndexPage := or (eq .Kind "taxonomy") }}
-  <div {{ if $isIndexPage }}class="flex space-x-4"{{ end }}>
+  <div {{ if $isIndexPage }}class="flex space-x-4 flex-wrap"{{ end }}>
   {{ range (.Paginate .Pages).Pages }}
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
     {{ if not $isIndexPage }}
