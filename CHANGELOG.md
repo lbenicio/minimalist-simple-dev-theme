@@ -14,3 +14,11 @@ All notable changes to this project will be documented in this file.
 
 - add social partials
 - switch toml to yaml
+
+## v0.1.0
+
+### Changed
+
+- remove duplicate layout files
+- separate single and list layout for blog or pages
+- move content to articles
