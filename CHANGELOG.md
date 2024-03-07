@@ -7,3 +7,10 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - Initial Release
+
+## v0.0.2
+
+### Changed
+
+- add social partials
+- switch toml to yaml
