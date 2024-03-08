@@ -28,6 +28,6 @@ jobs:
             [Cancel action run](${{ github.event.workflow_run.cancel_url }})
 
             Workflow: ${{ github.event.workflow_run.name }}
-            Job status: ${{ github.event.workflow_run.conclusion == 'success' && '✅' || '🚫' }} ${{ github.event.workflow_run.conclusion }}
+            Job status: ${{ github.event.workflow_run.conclusion == 'success' && '✅' || github.event.workflow_run.conclusion == '' && '✅' || '🚫' }} ${{ github.event.workflow_run.conclusion }}
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
