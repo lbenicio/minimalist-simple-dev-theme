@@ -77,6 +77,25 @@ params:
       instance: instagram.com
       visible: false
       icon: fab fa-instagram
+copyright: GPLv3
+outputs:
+  home:
+      - HTML
+      - RSS
+      - XML
+  section:
+      - HTML
+      - RSS
+      - XML
+  taxonomy:
+      - HTML
+      - RSS
+      - XML
+  term:
+      - HTML
+      - RSS
+      - XML
+
 module:
   hugoVersion:
     extended: false

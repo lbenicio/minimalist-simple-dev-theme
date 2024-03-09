@@ -7,6 +7,7 @@ body {
 }
 
 nav#menu:before,
+div#footer-social-nav:before,
 nav#social:before,
 nav#blog-navigation:before {
     content: "";
@@ -23,7 +24,10 @@ nav#blog-navigation:before {
     background-color: rgb(249, 250, 251);
 }
 
-nav#menu:after,nav#social:after, nav#blog-navigation:after {
+nav#menu:after,
+div#footer-social-nav:after,
+nav#social:after,
+nav#blog-navigation:after {
     content: "";
     position: absolute;
     border-bottom: 1px solid rgb(156, 163, 175);
@@ -32,6 +36,14 @@ nav#menu:after,nav#social:after, nav#blog-navigation:after {
     transform-origin: 0% 0%;
     left: calc(50% + 1px);
     background-color: rgb(249, 250, 251);
+}
+
+div#footer-social-nav:before {
+    margin-top: -1.4em;
+}
+
+div#footer-social-nav:after {
+    margin-top: -0.5em;
 }
 
 nav#blog-navigation:after {
