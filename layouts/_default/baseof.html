@@ -22,9 +22,11 @@
       {{ end }}
     </header>
 
+    {{ if or $isBlog $isPage }}
     <main class="w-100 sm:w-3/4 flex flex-col mx-auto">
       {{ block "main" . }}{{ end }}
     </main>
+    {{ end }}
 
     <footer class="w-100 sm:w-3/4 h-fit flex flex-col mb-3 justify-center mx-auto">
       {{ partial "footer.html" . }}
