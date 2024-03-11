@@ -13,9 +13,9 @@
 
 <body class="bg-gray-50">
   {{ partial "fork.html" . }}
-  <container class="container flex flex-col h-screen mx-auto">
+  <container class="container flex flex-col h-screen mx-auto w-11/12 sm:w-100">
 
-    <header class="w-100 sm:w-3/4 h-fit flex flex-col mx-auto {{ if or $isBlog $isPage }}my-16{{ else }}my-auto{{ end }}">
+    <header class="w-100 sm:w-3/4 sm:mx-auto h-fit flex flex-col justify-center {{ if or $isBlog $isPage }}my-16{{ else }}my-auto{{ end }}">
       {{ partial "header.html" . }}
       {{ if $isBlog }}
         {{ partial "blog-navigation.html" . }}
@@ -23,7 +23,7 @@
     </header>
 
     {{ if or $isBlog $isPage }}
-    <main class="w-100 sm:w-3/4 flex flex-col mx-auto">
+    <main class="w-fit sm:w-3/4 flex flex-col mx-auto text-wrap">
       {{ block "main" . }}{{ end }}
     </main>
     {{ end }}

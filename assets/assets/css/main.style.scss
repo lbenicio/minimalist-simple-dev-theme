@@ -6,6 +6,11 @@ body {
     font-family: 'Roboto Mono', monospace;
 }
 
+p {
+    word-break: break-all;
+    white-space: normal;
+}
+
 nav#menu:before,
 div#footer-social-nav:before,
 nav#social:before,
@@ -89,4 +94,11 @@ div#pagination {
 nav#TableOfContents > ul {
     list-style-type: disc;
     list-style-position: inside;
+}
+
+@media (min-width: 640px) {
+    .mx-auto-main {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
