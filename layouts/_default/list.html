@@ -2,7 +2,7 @@
   <h1>{{ .Title }}</h1>
   {{ $isIndexPage := or (eq .Kind "taxonomy") }}
   <div {{ if $isIndexPage }}class="flex space-x-4 flex-wrap"{{ end }}>
-      {{ $pages := (cond (eq .Type "articles") (where .Site.RegularPages "Section" "articles") .Pages) }}
+      {{ $pages := (cond (and (eq .Type "articles") (ne .Kind "section") (gt .Site.Paginate 0)) (where .Site.RegularPages "Section" "articles") .Pages) }}
       {{ range (.Paginate $pages).Pages }}
       <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
       {{ if not $isIndexPage }}
