@@ -22,3 +22,4 @@ All notable changes to this project will be documented in this file.
 - remove duplicate layout files
 - separate single and list layout for blog or pages
 - move content to articles
+- remove social netowork mentions
