@@ -23,3 +23,9 @@ All notable changes to this project will be documented in this file.
 - separate single and list layout for blog or pages
 - move content to articles
 - remove social netowork mentions
+
+## v0.1.0
+
+### Changed
+
+- change project structure
