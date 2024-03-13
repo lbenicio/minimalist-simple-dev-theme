@@ -10,7 +10,8 @@
         {{ $dateHuman := .Date | time.Format ":date_long" }}
         <time datetime="{{ $dateMachine }}" class="my-2">{{ $dateHuman }}</time>
       {{ end }}
-      <p>{{ .Summary }}</p>
+      {{ $summary := replace (replace .Summary "#" "") .Title "" }}
+      <p>{{ $summary }}</p>
       {{ if not $isIndexPage }}
         <a href="{{ .RelPermalink }}" class="text-blue-600 hover:underline">Read more...</a>
       {{ end }}

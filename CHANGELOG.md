@@ -29,3 +29,5 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - change project structure
+- fix summary generation
+- add taxonomy for categories
