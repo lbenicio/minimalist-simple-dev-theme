@@ -25,7 +25,6 @@ menus:
       weight: 40
       pre: fas fa-comment-alt
 params:
-  paginate: true
   author: Leonardo Benicio
   email: hello@lbenicio.dev
   analytics:

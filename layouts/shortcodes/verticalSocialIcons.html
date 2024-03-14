@@ -1,0 +1,12 @@
+<ul class="flex flex-col">
+    {{- with .Site.Params.social }}
+        {{ range $k, $v := . }}
+        <li class="mt-5">
+            <a href="https://{{ $v.instance }}/{{ $v.username }}">
+                <i class="{{ $v.icon }} text-3xl"></i>
+            </a>
+        </li>
+        {{ end }}
+    {{ end }}
+    <li class="mt-5"><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></li>
+</ul>
