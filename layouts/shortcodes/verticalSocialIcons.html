@@ -1,9 +1,10 @@
-<ul class="flex flex-col">
+<ul class="flex flex-col mx-auto sm:mx-0">
     {{- with .Site.Params.social }}
         {{ range $k, $v := . }}
         <li class="mt-5">
             <a href="https://{{ $v.instance }}/{{ $v.username }}">
                 <i class="{{ $v.icon }} text-3xl"></i>
+                {{ $k }}
             </a>
         </li>
         {{ end }}

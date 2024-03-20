@@ -4,6 +4,9 @@
     name='viewport'>
 <meta content='{{ $title }}' property='og:title' />
 <meta content='{{ site.BaseURL }}' property='og:url' />
-<meta content="{{ .Description }}" property='og:description' />
+<meta name="description"
+    content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }}" property='og:description'>
 <meta content="blog" property="og:type" />
+<meta name="keywords" content="{{ if .Params.Keywords }}{{ delimit .Params.Keywords " , " }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}" />
 <title>{{ $title }}</title>

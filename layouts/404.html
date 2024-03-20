@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="flex space-y-5 flex-col">
+    <h1 class="text-3xl">{{ .Title }}</h1>
+    {{ .Content }}
+    <p class="mx-auto text-3xl">🥲</p>
+    <p>Sorry, we could not find the page you are looking for.</p>
+    <p>Please check what you are looking for, if the detionation is correct and should be there, please contact us by email.</p>
+    <p><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+</div>
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{ partial "terms.html" (dict "taxonomy"
+    "categories" "page" .) }}
+{{ end }}

@@ -24,6 +24,7 @@ menus:
       url: /articles
       weight: 40
       pre: fas fa-comment-alt
+enableRobotsTXT: true
 params:
   author: Leonardo Benicio
   email: hello@lbenicio.dev

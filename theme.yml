@@ -12,6 +12,7 @@ tags:
 features:
   - blog
   - home page
+enableRobotsTXT: true
 author:
   name: Leonardo Benicio
   homepage: 'https://lbenicio.dev'

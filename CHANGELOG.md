@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file.
 - move content to articles
 - remove social netowork mentions
 
-## v0.1.0
+## v0.1.1
 
 ### Changed
 
@@ -32,3 +32,5 @@ All notable changes to this project will be documented in this file.
 - fix summary generation
 - add taxonomy for categories
 - fix forkme flag
+- add custom 404 page
+- style socials shortcode
