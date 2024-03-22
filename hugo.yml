@@ -26,6 +26,7 @@ menus:
       pre: fas fa-comment-alt
 enableRobotsTXT: true
 params:
+  blogURL: https://blog.lbenicio.dev
   author: Leonardo Benicio
   email: hello@lbenicio.dev
   analytics:
