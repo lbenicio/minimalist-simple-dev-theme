@@ -45,6 +45,7 @@ menus:
 params:
   author: Leonardo Benicio
   email: hello@lbenicio.dev
+  blogURL: https://blog.lbenicio.dev
   analytics:
     google: UA-123456789-1
   social:
