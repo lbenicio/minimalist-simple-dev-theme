@@ -1,0 +1,8 @@
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js"></script>
+<div id="search" class="flex flex-col mx-auto sm:mx-0 mt-5 mb-5"></div>
+<script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+        new PagefindUI({ element: "#search", showSubResults: true });
+    });
+</script>
