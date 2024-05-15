@@ -77,7 +77,7 @@ params:
             username: buymeacoffee
             instance: buymeacoffee.com
             visible: false
-            icon: fab fa-coffee
+            icon: fa fa-coffee
 copyright: GPLv3
 outputs:
     home:
