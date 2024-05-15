@@ -63,6 +63,21 @@ params:
             instance: instagram.com
             visible: false
             icon: fab fa-instagram
+        youtube:
+            username: "@youtube"
+            instance: youtube.com
+            visible: false
+            icon: fab fa-youtube
+        bluesky:
+            username: profile/bluesky.bsky.social
+            instance: bsky.app
+            visible: false
+            icon: fa-brands fa-bluesky
+        buyMeACoffee:
+            username: buymeacoffee
+            instance: buymeacoffee.com
+            visible: false
+            icon: fab fa-coffee
 copyright: GPLv3
 outputs:
     home:

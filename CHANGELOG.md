@@ -41,3 +41,10 @@ All notable changes to this project will be documented in this file.
 
 -   add pagefind
 -   add subscribe form
+
+## v0.1.3
+
+### Changed
+
+- add bluesky icon
+- update fontawesome

@@ -1,7 +1,7 @@
 name: dev-simple-minimal
 license: GPLv3
 licenselink: "https://github.com/lbenicio/minimalist-simple-dev/LICENSE"
-version: 0.1.2
+version: 0.1.3
 homepage: "https://github.com/lbenicio/minimal-simple-dev"
 demosite: "https://lbenicio.dev"
 tags:
@@ -80,6 +80,21 @@ params:
             instance: instagram.com
             visible: false
             icon: fab fa-instagram
+        youtube:
+            username: "@youtube"
+            instance: youtube.com
+            visible: false
+            icon: fab fa-youtube
+        bluesky:
+            username: profile/bluesky.bsky.social
+            instance: bsky.app
+            visible: false
+            icon: fa-brands fa-bluesky
+        buyMeACoffee:
+            username: buymeacoffee
+            instance: buymeacoffee.com
+            visible: false
+            icon: fab fa-coffee
 copyright: GPLv3
 outputs:
     home:
