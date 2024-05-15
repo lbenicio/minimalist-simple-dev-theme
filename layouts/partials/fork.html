@@ -1,7 +1,9 @@
+{{ $isBlog := or (eq .Kind "taxonomy") (eq .Kind "term") (eq .Kind "section") (eq .Type "posts") (eq .Type "articles")
+}}
 <a class="fork-me z-10 bg-black fixed top-[10%] right-0 p-5"
     href="https://github.com/{{ .Site.Params.social.github.username }}/{{ .Site.Params.social.github.username }}.github.io" target="_blank">
     <span class="flex text-white">
-        <i class="fas fa-code-branch fa-lg"></i>
+        <i class="fas fa-code-branch fa-lg {{ if $isBlog }}pt-2{{ end }}"></i>
         <p class="ml-9 fa-lg hidden sm:block pr-5">Fork me !</p>
     </span>
 </a>

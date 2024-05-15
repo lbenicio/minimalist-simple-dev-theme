@@ -48,9 +48,5 @@ All notable changes to this project will be documented in this file.
 
 - add bluesky icon
 - update fontawesome
-
-## v0.1.3
-
-### Changed
-
 - fix iframe self-closing tag
+- fix fork icon

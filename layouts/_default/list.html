@@ -5,7 +5,7 @@
 <div {{ if $isIndexPage }}class="flex space-x-4 flex-wrap" {{ end }}>
     {{ $pages := (cond (and (eq .Type "articles") (ne .Kind "section")) (where .Site.RegularPages "Section" "articles")
     .Pages) }} {{ range (.Paginate $pages).Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    <h2 class="break-words"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
     {{ if not $isIndexPage }} {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{ $dateHuman :=
     .Date | time.Format ":date_long" }}
     <time datetime="{{ $dateMachine }}" class="my-2">{{ $dateHuman }}</time>
