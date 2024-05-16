@@ -29,7 +29,7 @@ params:
     blogURL: https://blog.lbenicio.dev
     author: Leonardo Benicio
     email: hello@lbenicio.dev
-    sendgridAPIKey: bb7a97b1-feb6-11ee-a302-4e5d13f5dd42
+    formBold: oyD1b
     analytics:
         google: UA-123456789-1
     social:

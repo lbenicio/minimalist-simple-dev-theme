@@ -40,11 +40,10 @@
                 }
             ]
         };
-        const response = await fetch('https://api.sendgrid.com/v3/marketing/contacts', {
-            method: 'PUT',
+        const response = await fetch('https://formbold.com/s/{{ site.Params.formBold }}', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer {{ site.Params.sendgridAPIKey }}'
             },
             body: JSON.stringify(data)
         });
