@@ -46,7 +46,7 @@ params:
     author: Leonardo Benicio
     email: hello@lbenicio.dev
     blogURL: https://blog.lbenicio.dev
-    subscribeForm: https://cdn.forms-content-1.sg-form.com/bb7a97b1-feb6-11ee-a302-4e5d13f5dd42
+    sendgridAPIKey: bb7a97b1-feb6-11ee-a302-4e5d13f5dd42
     analytics:
         google: UA-123456789-1
     social:

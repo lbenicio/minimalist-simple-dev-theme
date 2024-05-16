@@ -50,3 +50,4 @@ All notable changes to this project will be documented in this file.
 - update fontawesome
 - fix iframe self-closing tag
 - fix fork icon
+- update subscribe form to use native theme instead of iframe
