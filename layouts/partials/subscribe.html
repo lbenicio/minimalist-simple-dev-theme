@@ -1,9 +1,17 @@
-{{ if site.Params.sendgridAPIKey }}
-<div class="hidden z-100 fixed top-[5%] left-[5%] bg-teal-100 border-l-4 border-teal-500 text-teal-700 p-4" role="alert" id="mail-success">
+{{ if site.Params.subscribe }}
+<div
+    class="hidden z-100 fixed top-[5%] left-[5%] bg-teal-100 border-l-4 border-teal-500 text-teal-700 p-4"
+    role="alert"
+    id="mail-success"
+>
     <p class="font-bold">Subscription success</p>
     <p>You have been subscribed to hour mailing list.</p>
 </div>
-<div class="hidden z-100 fixed top-[5%] left-[5%] bg-teal-100 border-l-4 border-teal-500 text-teal-700 p-4" role="alert" id="mail-fail">
+<div
+    class="hidden z-100 fixed top-[5%] left-[5%] bg-teal-100 border-l-4 border-teal-500 text-teal-700 p-4"
+    role="alert"
+    id="mail-fail"
+>
     <p class="font-bold">Subscription failed</p>
     <p>Something not ideal might be happening.</p>
 </div>
@@ -11,60 +19,81 @@
     <h2 class="text-2xl font-bold">Subscribe to my newsletter</h2>
     <form>
         <div class="form-group mt-1">
-            <label for="first_name" class="text-sm font-bold">Given name<span class="inline-block align-top pl-1 text-red-600">*</span></label>
-            <input type="text" id="first_name" name="first_name" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
+            <label for="first_name" class="text-sm font-bold"
+                >Given name<span class="inline-block align-top pl-1 text-red-600">*</span></label
+            >
+            <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                class="w-full p-2 mt-2 border border-gray-300 rounded-md"
+                required
+            />
         </div>
         <div class="form-group mt-1">
-            <label for="last_name" class="text-sm font-bold">Family name<span class="inline-block align-top pl-1 text-red-600">*</span></label>
-            <input type="text" id="last_name" name="last_name" class="w-full p-2 mt-2 border border-gray-300 rounded-md" required>
+            <label for="last_name" class="text-sm font-bold"
+                >Family name<span class="inline-block align-top pl-1 text-red-600">*</span></label
+            >
+            <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                class="w-full p-2 mt-2 border border-gray-300 rounded-md"
+                required
+            />
         </div>
         <div class="form-group mt-1">
-            <label for="email" class="text-sm font-bold">Email<span class="inline-block align-top pl-1 text-red-600">*</span></label>
-            <input type="email" id="email" name="email" class="w-full p-2 mt-2 border border-gray-300 rounded-md" placeholder="Enter your email address" required>
+            <label for="email" class="text-sm font-bold"
+                >Email<span class="inline-block align-top pl-1 text-red-600">*</span></label
+            >
+            <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full p-2 mt-2 border border-gray-300 rounded-md"
+                placeholder="Enter your email address"
+                required
+            />
         </div>
         <button type="submit" class="p-4 mt-5 text-white bg-blue-500 rounded-md hover:bg-blue-600">Subscribe</button>
     </form>
 </div>
 
 <script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', async (e) => {
+    const form = document.querySelector("form");
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
         const data = {
-            "contacts": [
-                {
-                    "email": formData.get('email'),
-                    "first_name": formData.get('first_name'),
-                    "last_name": formData.get('last_name')
-                }
-            ]
+            email: formData.get("email"),
+            first_name: formData.get("first_name"),
+            last_name: formData.get("last_name"),
         };
-        const response = await fetch('https://formbold.com/s/{{ site.Params.formBold }}', {
-            method: 'POST',
+        const response = await fetch("{{ site.Params.subscribe }}/mail/contact/create", {
+            method: "PUT",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
         });
         const result = await response.json();
-        const mailingResultSuccess = document.getElementById('mail-success');
-        const mailingResultFail = document.getElementById('mail-fail');
+        const mailingResultSuccess = document.getElementById("mail-success");
+        const mailingResultFail = document.getElementById("mail-fail");
         if (response.status === 200) {
-            while (mailingResultSuccess.classList.contains('hidden')) {
-                mailingResultSuccess.classList.remove('hidden');
+            while (mailingResultSuccess.classList.contains("hidden")) {
+                mailingResultSuccess.classList.remove("hidden");
             }
-            mailingResultFail.classList.add('hidden');
+            mailingResultFail.classList.add("hidden");
         } else {
-            while (mailingResultFail.classList.contains('hidden')) {
-                mailingResultFail.classList.remove('hidden');
+            while (mailingResultFail.classList.contains("hidden")) {
+                mailingResultFail.classList.remove("hidden");
             }
-            mailingResultSuccess.classList.add('hidden');
+            mailingResultSuccess.classList.add("hidden");
         }
 
         setTimeout(() => {
-            mailingResultSuccess.classList.add('hidden');
-            mailingResultFail.classList.add('hidden');
+            mailingResultSuccess.classList.add("hidden");
+            mailingResultFail.classList.add("hidden");
         }, 5000);
     });
 </script>

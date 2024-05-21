@@ -29,7 +29,7 @@ params:
     blogURL: https://blog.lbenicio.dev
     author: Leonardo Benicio
     email: hello@lbenicio.dev
-    formBold: oyD1b
+    subscribe: https://api.lbenicio.dev
     analytics:
         google: UA-123456789-1
     social:

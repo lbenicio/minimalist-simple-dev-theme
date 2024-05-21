@@ -51,4 +51,4 @@ All notable changes to this project will be documented in this file.
 - fix iframe self-closing tag
 - fix fork icon
 - update subscribe form to use native theme instead of iframe
-- switch to form bold
+- switch to api endpoint for subscribe form
