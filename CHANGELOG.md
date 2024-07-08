@@ -52,3 +52,4 @@ All notable changes to this project will be documented in this file.
 - fix fork icon
 - update subscribe form to use native theme instead of iframe
 - switch to api endpoint for subscribe form
+- fix main spacing on mobile
