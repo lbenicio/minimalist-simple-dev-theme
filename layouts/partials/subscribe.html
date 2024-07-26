@@ -1,4 +1,4 @@
-{{ if not (eq site.Params.subscribe nil) }}
+{{ if not (eq site.Params.SubscribeURL nil) }}
 <div
     class="hidden z-100 fixed top-[5%] left-[5%] bg-teal-100 border-l-4 border-teal-500 text-teal-700 p-4"
     role="alert"
@@ -69,8 +69,16 @@
             first_name: formData.get("first_name"),
             last_name: formData.get("last_name"),
         };
-        const response = await fetch("{{ site.Params.subscribe }}/mail/contact/create", {
-            method: "PUT",
+        const data = {
+            email: formData.get("email"),
+            name: `${formData.get("first_name")} ${formData.get("last_name")}`,
+            status: "enabled",
+            lists: ["{{ site.Params.SubscribeListId }}"],
+            preconfirm_subscriptions: true,
+            attribs: {},
+        };
+        const response = await fetch("{{ site.Params.SubscribeURL }}", {
+            method: "{{ site.Params.SubscribeMethod }}",
             headers: {
                 "Content-Type": "application/json",
             },
