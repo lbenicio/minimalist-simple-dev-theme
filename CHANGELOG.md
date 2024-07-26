@@ -53,3 +53,11 @@ All notable changes to this project will be documented in this file.
 - update subscribe form to use native theme instead of iframe
 - switch to api endpoint for subscribe form
 - fix main spacing on mobile
+- add subscribe shortcode
+
+## v0.1.5
+
+### Changed
+
+- refactor newsleeter form
+- add subscribe shortcode
