@@ -64,3 +64,4 @@ All notable changes to this project will be documented in this file.
 - fix double data declaration
 - enable theme conditional param
 - send sub list as int
+- dont stringify payload

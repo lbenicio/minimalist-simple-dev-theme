@@ -80,7 +80,7 @@
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: data,
             });
             const result = await response.json();
             const mailingResultSuccess = document.getElementById("mail-success");
