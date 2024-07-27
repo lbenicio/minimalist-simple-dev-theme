@@ -68,7 +68,7 @@
             email: formData.get("email"),
             name: `${formData.get("first_name")} ${formData.get("last_name")}`,
             status: "enabled",
-            lists: ["{{ site.Params.SubscribeListId }}"],
+            lists: [parseInt("{{ site.Params.SubscribeListId }}")],
             preconfirm_subscriptions: true,
             attribs: {},
         };
