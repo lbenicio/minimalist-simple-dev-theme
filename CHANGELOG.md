@@ -62,3 +62,4 @@ All notable changes to this project will be documented in this file.
 - refactor newsleeter form
 - add subscribe shortcode
 - fix double data declaration
+- enable theme conditional param
