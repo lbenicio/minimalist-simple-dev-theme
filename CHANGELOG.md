@@ -65,3 +65,4 @@ All notable changes to this project will be documented in this file.
 - enable theme conditional param
 - send sub list as int
 - dont stringify payload
+- add contact shortcode
