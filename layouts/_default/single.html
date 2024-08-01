@@ -1,6 +1,6 @@
-{{ define "main" }}
+{{ define "main" }} {{ $isIndexPage := not (eq .Kind "page") }} {{ if $isIndexPage }}
 <div>{{ partial "search.html" }}</div>
-<h1>{{ .Title }}</h1>
+{{ end }}
 <content>{{ .Content }}</content>
 <div>{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
 <div>{{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}</div>

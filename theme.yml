@@ -47,6 +47,7 @@ params:
   email: hello@lbenicio.dev
   blogURL: https://blog.lbenicio.dev
   subscribe: https://api.lbenicio.dev
+  ContactURL: http://test.com
   analytics:
     google: UA-123456789-1
   social:
