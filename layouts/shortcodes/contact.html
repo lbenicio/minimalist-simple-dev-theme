@@ -108,6 +108,7 @@
         method: "{{ site.Params.ContactMethod }}",
         headers: {
           "Content-Type": "application/json",
+          Authorization: "{{ site.Params.ContactToken }}",
         },
         body: JSON.stringify(data),
       });
