@@ -66,3 +66,10 @@ All notable changes to this project will be documented in this file.
 - send sub list as int
 - dont stringify payload
 - add contact shortcode
+
+## v0.1.6
+
+### Changed
+
+- add placeholder
+- add auth header
