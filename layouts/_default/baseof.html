@@ -33,6 +33,9 @@
 
     {{ if or $isBlog $isPage (eq .Kind "404") }}
     <main class="w-full sm:w-3/4 flex flex-col mx-auto text-wrap">
+      {{ if $isBlog }}
+        {{ partial "search.html" . }}
+      {{ end }}
       {{ block "main" . }}{{ end }}
     </main>
     {{ end }}

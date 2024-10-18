@@ -74,3 +74,9 @@ All notable changes to this project will be documented in this file.
 - add placeholder
 - add auth header
 - fix layout css issues
+
+## v0.1.7
+
+### Changed
+
+- fix search bar position and placement
