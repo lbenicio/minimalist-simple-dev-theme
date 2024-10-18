@@ -80,3 +80,4 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - fix search bar position and placement
+- render html in post listing
