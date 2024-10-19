@@ -1,6 +1,4 @@
-{{ define "main" }} {{ $isIndexPage := or (eq .Kind "taxonomy") (eq .Kind "section") }} {{ if $isIndexPage }}
-<div>{{ partial "search.html" }}</div>
-{{ end }}
+{{ define "main" }} {{ $isIndexPage := or (eq .Kind "taxonomy") (eq .Kind "section") }}
 <h1>{{ .Title }}</h1>
 
 <div {{ if $isIndexPage }}class="flex space-x-4 flex-wrap" {{ end }}>
