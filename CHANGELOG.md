@@ -81,3 +81,4 @@ All notable changes to this project will be documented in this file.
 
 - fix search bar position and placement
 - render html in post listing
+- fix double search bar
