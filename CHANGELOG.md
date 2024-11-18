@@ -82,3 +82,10 @@ All notable changes to this project will be documented in this file.
 - fix search bar position and placement
 - render html in post listing
 - fix double search bar
+
+## v0.1.10
+
+### Changed
+
+- Remove search bar from post listing
+- Remove image tag on post listing
