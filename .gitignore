@@ -2,6 +2,7 @@
 public
 .hugo_build.lock
 resources
+content
 
 # NodeJS
 node_modules

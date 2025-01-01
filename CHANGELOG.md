@@ -89,3 +89,10 @@ All notable changes to this project will be documented in this file.
 
 - Remove search bar from post listing
 - Remove image tag on post listing
+
+## v0.2.0
+
+### Changed
+
+- Add image to post listing
+- fix XML rendering
