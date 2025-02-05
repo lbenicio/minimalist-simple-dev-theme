@@ -1,7 +1,7 @@
 name: dev-simple-minimal
 license: GPLv3
 licenselink: "https://github.com/lbenicio/minimalist-simple-dev/LICENSE"
-version: 0.2.0
+version: 0.3.0
 homepage: "https://github.com/lbenicio/minimal-simple-dev"
 demosite: "https://lbenicio.dev"
 tags:

@@ -96,3 +96,10 @@ All notable changes to this project will be documented in this file.
 
 - Add image to post listing
 - fix XML rendering
+- add custom sitemap
+
+## v0.3.0
+
+### Changed
+
+- add custom sitemap
