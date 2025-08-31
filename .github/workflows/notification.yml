@@ -23,14 +23,13 @@ jobs:
           message: |
             Code Deployed: ${{ github.repository }}
 
-            ${{ github.actor }} created commit:
-            ${{ github.event.workflow_run.head_commit.message }}
+            ${{ github.actor }} pushed commit:
+            ${{ github.event.head_commit.message }}
 
-            [View action run](${{ github.event.workflow_run.html_url }})
-            [View actions logs](${{ github.event.workflow_run.logs_url }})
-            [Cancel action run](${{ github.event.workflow_run.cancel_url }})
+            [View action run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            [View actions logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
 
-            Workflow: ${{ github.event.workflow_run.name }}
-            Job status: ${{ github.event.workflow_run.conclusion == 'success' && '✅' || github.event.workflow_run.conclusion == '' && '✅' || '🚫' }} ${{ github.event.workflow_run.conclusion }}
-            
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Workflow: ${{ github.workflow }} (#${{ github.run_number }})
+            Status: ${{ job.status || 'completed' }}
+
+            See changes: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
