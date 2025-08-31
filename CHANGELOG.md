@@ -1,19 +1,11 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-## v0.0.1
-
-### Changed
-
-# Changelog
-
 All notable changes to this project are documented in this file.
 
 This project adheres to "Keep a Changelog" (<https://keepachangelog.com/en/1.0.0/>)
 and follows Semantic Versioning.
 
-## [Unreleased]
+## [Released]
 
 ## [0.3.1] - 2025-08-31
 
