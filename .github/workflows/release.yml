@@ -9,6 +9,10 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      actions: read
     steps:
       - uses: actions/checkout@v5
       - uses: CupOfTea696/gh-action-auto-release@v1.0.2
@@ -18,4 +22,8 @@ jobs:
           draft: false
           regex: "/^release: v#{semver}$/i"
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true

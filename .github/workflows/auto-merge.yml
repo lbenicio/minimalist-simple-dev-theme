@@ -19,7 +19,15 @@ on:
       - completed
   status:
 
-permissions: write-all
+ 
+permissions:
+  pull-requests: write
+  contents: read
+  actions: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   automerge:
