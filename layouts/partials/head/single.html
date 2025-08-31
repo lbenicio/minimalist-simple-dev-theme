@@ -1,6 +1,6 @@
 {{ $styles := resources.Get "assets/css/single.style.scss"
 | toCSS
-| postCSS (dict "config" "./assets/assets/css/postcss.config.js")
+| postCSS (dict "config" "./assets/assets/js/postcss.config.js")
 }}
 {{- if eq hugo.Environment "development" }}
     {{ $styles := $styles | fingerprint }}

@@ -1,4 +1,4 @@
-{{- with resources.Get "assets/font/main.font.css" }}
+{{- with resources.Get "assets/css/font/main.font.css" }}
     {{- if eq hugo.Environment "development" }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
     {{- else }}
@@ -7,7 +7,7 @@
         {{- end }}
     {{- end }}
 {{- end }}
-{{- with resources.Get "assets/font/monokai.font.css" }}
+{{- with resources.Get "assets/css/font/monokai.font.css" }}
     {{- if eq hugo.Environment "development" }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
     {{- else }}
