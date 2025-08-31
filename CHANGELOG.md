@@ -33,7 +33,6 @@ and follows Semantic Versioning.
 
 - GitHub Actions: notification workflow fixed to use push-safe context fields and added permissions/concurrency to workflows.
 
-
 ## [0.3.1] - 2025-08-31
 
 ### Changed
