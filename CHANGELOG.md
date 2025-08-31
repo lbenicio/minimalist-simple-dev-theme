@@ -7,6 +7,22 @@ and follows Semantic Versioning.
 
 ## [Released]
 
+## [0.3.3] - 2025-08-31
+
+### Added
+
+- VS Code workspace settings and recommended extensions in `.vscode/` to improve developer experience.
+
+### Changed
+
+- Added Hugo module mounts to `hugo.yml` and `theme.yml` so source files under `src/` are used as the site inputs when running Hugo from the repo root.
+- Updated `start:dev` npm script to place runtime outputs under `./.build` and manage `src/resources` via a local symlink during development.
+- Bumped `package.json` version to `0.3.3`.
+
+### Fixed
+
+- Re-tracked `src/hugo.yml` in git so the test/production config stays available to other contributors.
+
 ## [0.3.1] - 2025-08-31
 
 ### Changed
