@@ -23,6 +23,17 @@ and follows Semantic Versioning.
 
 - Re-tracked `src/hugo.yml` in git so the test/production config stays available to other contributors.
 
+## [0.3.4] - 2025-08-31
+
+### Added
+
+- Documentation: added `docs/` with development and production guides.
+
+### Fixed
+
+- GitHub Actions: notification workflow fixed to use push-safe context fields and added permissions/concurrency to workflows.
+
+
 ## [0.3.1] - 2025-08-31
 
 ### Changed
