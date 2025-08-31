@@ -6,43 +6,80 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Initial Release
+# Changelog
 
-## v0.0.2
+All notable changes to this project are documented in this file.
 
-### Changed
+This project adheres to "Keep a Changelog" (<https://keepachangelog.com/en/1.0.0/>)
+and follows Semantic Versioning.
 
-- add social partials
-- switch toml to yaml
+## [Unreleased]
 
-## v0.1.0
-
-### Changed
-
-- remove duplicate layout files
-- separate single and list layout for blog or pages
-- move content to articles
-- remove social netowork mentions
-
-## v0.1.1
+## [0.3.1] - 2025-08-31
 
 ### Changed
 
-- change project structure
-- fix summary generation
-- add taxonomy for categories
-- fix forkme flag
-- add custom 404 page
-- style socials shortcode
+- Replace deprecated Hugo site config key `paginate` with `pagination.pagerSize` in theme/site example config.
+- Bump theme `version` to `0.3.1`.
 
-## v0.1.2
+### Fixed
+
+- Remove Hugo deprecation warning by updating pagination config.
+
+### Updated
+
+- Add Dependabot ignore entries for `tailwindcss`, `postcss`, and `autoprefixer` to reduce noisy dependency PRs from the theme's `npm` updates.
+
+## [0.3.0]
 
 ### Changed
 
-- add pagefind
-- add subscribe form
+- add custom sitemap
 
-## v0.1.3
+## [0.2.0]
+
+### Changed
+
+- Add image to post listing
+- fix XML rendering
+- add custom sitemap
+
+## [0.1.10]
+
+### Changed
+
+- Remove search bar from post listing
+- Remove image tag on post listing
+
+## [0.1.7]
+
+### Changed
+
+- fix search bar position and placement
+- render html in post listing
+- fix double search bar
+
+## [0.1.6]
+
+### Changed
+
+- add placeholder
+- add auth header
+- fix layout css issues
+
+## [0.1.5]
+
+### Changed
+
+- refactor newsletter form
+- add subscribe shortcode
+- fix double data declaration
+- enable theme conditional param
+- send sub list as int
+- don't stringify payload
+- add contact shortcode
+
+## [0.1.3]
 
 ### Changed
 
@@ -55,51 +92,42 @@ All notable changes to this project will be documented in this file.
 - fix main spacing on mobile
 - add subscribe shortcode
 
-## v0.1.5
+## [0.1.2]
 
 ### Changed
 
-- refactor newsleeter form
-- add subscribe shortcode
-- fix double data declaration
-- enable theme conditional param
-- send sub list as int
-- dont stringify payload
-- add contact shortcode
+- add pagefind
+- add subscribe form
 
-## v0.1.6
+## [0.1.1]
 
 ### Changed
 
-- add placeholder
-- add auth header
-- fix layout css issues
+- change project structure
+- fix summary generation
+- add taxonomy for categories
+- fix forkme flag
+- add custom 404 page
+- style socials shortcode
 
-## v0.1.7
-
-### Changed
-
-- fix search bar position and placement
-- render html in post listing
-- fix double search bar
-
-## v0.1.10
+## [0.1.0]
 
 ### Changed
 
-- Remove search bar from post listing
-- Remove image tag on post listing
+- remove duplicate layout files
+- separate single and list layout for blog or pages
+- move content to articles
+- remove social network mentions
 
-## v0.2.0
-
-### Changed
-
-- Add image to post listing
-- fix XML rendering
-- add custom sitemap
-
-## v0.3.0
+## [0.0.2]
 
 ### Changed
 
-- add custom sitemap
+- add social partials
+- switch toml to yaml
+
+## [0.0.1]
+
+### Changed
+
+- Initial release
