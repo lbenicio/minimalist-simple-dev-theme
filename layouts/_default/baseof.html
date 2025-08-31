@@ -22,9 +22,9 @@
 
 <body class="bg-gray-50">
   {{ partial "fork.html" . }}
-  <container class="container flex flex-col h-screen mx-auto w-11/12 sm:w-100">
+  <div class="container flex flex-col h-screen mx-auto w-11/12 sm:w-100" role="document">
 
-    <header class="w-100 sm:w-3/4 sm:mx-auto h-fit flex flex-col justify-center {{ if or (eq .Kind "404") $isBlog $isPage }}my-16{{ else }}my-auto{{ end }}">
+    <header class="w-100 sm:w-3/4 sm:mx-auto h-fit flex flex-col justify-center {{ if or (eq .Kind "404") $isBlog $isPage }}my-16{{ else }}my-auto{{ end }}" role="banner" aria-label="Site header">
       {{ partial "header.html" . }}
       {{ if $isBlog }}
         {{ partial "blog/navigation.html" . }}
@@ -32,7 +32,7 @@
     </header>
 
     {{ if or $isBlog $isPage (eq .Kind "404") }}
-    <main class="w-full sm:w-3/4 flex flex-col mx-auto text-wrap">
+    <main class="w-full sm:w-3/4 flex flex-col mx-auto text-wrap" role="main" aria-live="polite">
       {{ if $isBlog }}
         {{ partial "search.html" . }}
       {{ end }}
@@ -40,11 +40,11 @@
     </main>
     {{ end }}
 
-    <footer class="w-100 sm:w-3/4 h-fit flex flex-col mb-3 justify-center mx-auto">
+    <footer class="w-100 sm:w-3/4 h-fit flex flex-col mb-3 justify-center mx-auto" role="contentinfo" aria-label="Site footer">
       {{ partial "footer.html" . }}
     </footer>
 
-  </container>
+  </div>
   
   {{ partialCached "footer/analytics.html" . }}
   {{ partialCached "footer/js.html" . }}

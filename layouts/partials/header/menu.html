@@ -1,9 +1,9 @@
 {{- $page := .page }}
 {{- $menuID := .menuID }}
 
-{{- with index site.Menus $menuID }}
-  <nav class="p-5" id="menu">
-    <ul class="flex flex-row justify-center">
+  {{- with index site.Menus $menuID }}
+  <nav class="p-5" id="menu" role="navigation" aria-label="Primary">
+    <ul class="flex flex-row justify-center" role="menubar">
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
     </ul>
   </nav>
@@ -24,14 +24,14 @@
         {{- $name = . }}
       {{- end }}
     {{- end }}
-    <li class="ml-4">
-      <a
+    <li class="ml-4" role="none">
+      <a role="menuitem"
         {{- range $k, $v := $attrs }}
           {{- with $v }}
             {{- printf " %s=%q" $k $v | safeHTMLAttr }}
           {{- end }}
         {{- end -}}
-      ><i class="{{ .Pre }} text-gray-500"></i></a>
+      ><i class="{{ .Pre }} text-gray-500" aria-hidden="true"></i><span class="sr-only">{{ .Name }}</span></a>
       {{- with .Children }}
         <ul>
           {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
