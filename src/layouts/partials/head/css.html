@@ -1,4 +1,4 @@
-{{ $fontawesome := resources.Get "assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./assets/assets/js/postcss.config.js") }}
+{{ $fontawesome := resources.Get "assets/css/vendor/fontawesome.css" | postCSS (dict "config" "assets/assets/js/postcss.config.js") }}
 {{ $styles := resources.Get "assets/css/main.style.scss"
 | toCSS
 | postCSS (dict "config" "assets/assets/js/postcss.config.js")
