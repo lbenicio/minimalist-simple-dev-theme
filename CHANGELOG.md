@@ -5,7 +5,24 @@ All notable changes to this project are documented in this file.
 This project adheres to "Keep a Changelog" (<https://keepachangelog.com/en/1.0.0/>)
 and follows Semantic Versioning.
 
-## [Released]
+## [0.4.0] - 2025-09-01
+
+### Added
+
+- Static HTML asset integrity tests: `test/static.test.js` verifies that local assets referenced by generated HTML exist and are reachable.
+- NPM scripts for testing: `test:static` and `test:unit`.
+
+### Changed
+
+- Developer workflow: improved start process (`start` delegates to `start:dev`) and simplified cache cleanup scripts (`clear:cache`, `clear:all`) targeting `.build`.
+
+### Dependencies
+
+- Dev: added `jsdom` and `minimist` to support static HTML integrity tests and CLI args.
+
+### Links
+
+- Commit: [66e876d](https://github.com/lbenicio/minimalist-simple-dev-theme/commit/66e876d5cd48d7fdf544cde67d278bf461040f82)
 
 ## [0.3.5] - 2025-08-31
 
