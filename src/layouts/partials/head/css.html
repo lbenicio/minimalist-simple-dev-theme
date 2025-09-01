@@ -1,6 +1,6 @@
 {{ $styles := 1 }}
 {{ $fontawesome := 1 }}
-{{ with try ( resources.Get "./src/assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") ) }}
+{{ with try ( resources.Get "assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") ) }}
   {{ with .Err }}
     {{ $fontawesome = resources.Get "./assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./assets/assets/js/postcss.config.js") }}
     {{ $styles = resources.Get "./assets/css/main.style.scss"
@@ -9,7 +9,7 @@
     }}
   {{ else }}
     {{ $fontawesome = .Value }}
-    {{ $styles = resources.Get "./src/assets/css/main.style.scss"
+    {{ $styles = resources.Get "assets/css/main.style.scss"
     | toCSS
     | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js")
     }}

@@ -1,12 +1,12 @@
 {{ $styles := 1 }}
-{{ with try ( resources.Get "./src/assets/css/single.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") ) }}
+{{ with try ( resources.Get "assets/css/single.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") ) }}
   {{ with .Err }}
     {{ $styles = resources.Get "./assets/css/single.style.scss"
     | toCSS
     | postCSS (dict "config" "./assets/assets/js/postcss.config.js")
     }}
   {{ else }}
-    {{ $styles = resources.Get "./src/assets/css/single.style.scss"
+    {{ $styles = resources.Get "assets/css/single.style.scss"
     | toCSS
     | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js")
     }}
