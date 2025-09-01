@@ -1,11 +1,22 @@
-{{ $styles := resources.Get "./src/assets/assets/css/single.style.scss"
-| toCSS
-| postCSS (dict "config" "./src/assets/assets/js/postcss.config.js")
-}}
-{{- if eq hugo.Environment "development" }}
-    {{ $styles := $styles | fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
-{{- else }}
-    {{ $styles = $styles | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+{{ $styles := 1 }}
+{{ with try ( resources.Get "./src/assets/css/single.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") ) }}
+  {{ with .Err }}
+    {{ $styles = resources.Get "./assets/css/single.style.scss"
+    | toCSS
+    | postCSS (dict "config" "./assets/assets/js/postcss.config.js")
+    }}
+  {{ else }}
+    {{ $styles = resources.Get "./src/assets/css/single.style.scss"
+    | toCSS
+    | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js")
+    }}
+  {{ end }}
+
+  {{- if eq hugo.Environment "development" }}
+      {{ $styles := $styles | fingerprint }}
+      <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+  {{- else }}
+      {{ $styles = $styles | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+  {{- end }}
 {{- end }}

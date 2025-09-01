@@ -1,19 +1,31 @@
-{{ $fontawesome := resources.Get "assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") }}
-{{ $styles := resources.Get "assets/css/main.style.scss"
-| toCSS
-| postCSS (dict "config" "./src/assets/assets/js/postcss.config.js")
-}}
+{{ $styles := 1 }}
+{{ $fontawesome := 1 }}
+{{ with try ( resources.Get "./src/assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") ) }}
+  {{ with .Err }}
+    {{ $fontawesome = resources.Get "./assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./assets/assets/js/postcss.config.js") }}
+    {{ $styles = resources.Get "./assets/css/main.style.scss"
+    | toCSS
+    | postCSS (dict "config" "./assets/assets/js/postcss.config.js")
+    }}
+  {{ else }}
+    {{ $fontawesome = .Value }}
+    {{ $styles = resources.Get "./src/assets/css/main.style.scss"
+    | toCSS
+    | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js")
+    }}
+  {{ end }}
 
-{{- if eq hugo.Environment "development" }}
+  {{- if eq hugo.Environment "development" }}
     {{ $styles := $styles | fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}">
-{{- else }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
+      crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}">
+  {{- else }}
     {{ $styles := $styles | minify | fingerprint }}
     {{ $fontawesome := $fontawesome | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
-        crossorigin="anonymous">
+      crossorigin="anonymous">
     <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}" integrity="{{ $fontawesome.Data.Integrity }}"
-        crossorigin="anonymous">
-{{- end }}
+      crossorigin="anonymous">
+  {{- end }}
+{{ end }}
