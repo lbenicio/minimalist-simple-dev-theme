@@ -10,7 +10,8 @@
     "clear:cache": "rm -rf resources && rm -rf .hugo_build.lock",
     "clear:all": "npm run clear:build && npm run clear:cache && npm run clear:deps",
     "pagefind:dev": "npx -y pagefind --site public --serve",
-    "pagefind:prod": "npx pagefind --site public"
+    "pagefind:prod": "npx pagefind --site public",
+    "wiki:publish": "node scripts/publish-wiki.js --verbose --docs docs --branch master"
   },
   "author": "Leonardo Benicio",
   "license": "GPLv3",
