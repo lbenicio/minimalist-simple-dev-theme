@@ -7,9 +7,6 @@
 [![Releases](https://img.shields.io/github/v/release/lbenicio/minimalist-simple-dev-theme?sort=semver)](https://github.com/lbenicio/minimalist-simple-dev-theme/releases)
 [![GitHub Pages](https://img.shields.io/github/actions/workflow/status/lbenicio/minimalist-simple-dev-theme/hugo.yml?branch=main&label=pages)](https://github.com/lbenicio/minimalist-simple-dev-theme)
 
-<!-- project favicon (from theme static assets) -->
-![favicon](src/static/static/favicon/android-chrome-192x192.png)
-
 A minimal personal website and blog built with Hugo and Tailwind CSS.
 
 This repository contains the Hugo site source and a theme. The project is optimized for fast static builds and is deployed to GitHub Pages via GitHub Actions. Production builds include an obfuscation step that replaces non-semantic classes/IDs with randomized tokens.
