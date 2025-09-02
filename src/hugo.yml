@@ -34,6 +34,13 @@ params:
   email: hello@lbenicio.dev
   analytics:
     google: UA-123456789-1
+  # umami:
+  #   websiteId: "YOUR-UMAMI-WEBSITE-ID"
+  #   # Optional: explicitly set script host or full src
+  #   # host: "https://umami.example.com"
+  #   # src: "https://umami.example.com/script.js"
+  #   # Optional: restrict to domains (comma-separated)
+  #   # domains: "example.com,sub.example.com"
   social:
     twitter:
       username: twitter
