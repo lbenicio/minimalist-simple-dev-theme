@@ -29,6 +29,7 @@ enableRobotsTXT: true
 params:
   blogURL: https://blog.lbenicio.dev
   ContactURL: http://test.com
+  version: 0.4.1
   author: Leonardo Benicio
   email: hello@lbenicio.dev
   analytics:
