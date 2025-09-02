@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run start:dev",
     "test": "npm run test:unit",
-    "start:dev": "hugo server --source src --destination $PWD/.build/public --cacheDir $PWD/.build/cache --noBuildLock --buildDrafts --buildFuture --buildExpired --environment development",
+    "start:dev": "hugo server --config $PWD/theme.yml --source src --destination $PWD/.build/public --cacheDir $PWD/.build/cache --noBuildLock --buildDrafts --buildFuture --buildExpired --environment development",
     "build:prod": "hugo --minify --source src --destination $PWD/.build/public --cacheDir $PWD/.build/cache --noBuildLock --buildDrafts --buildFuture --buildExpired",
     "clear:cache": "rm -rf .build",
     "clear:all": "npm run clear:cache",
