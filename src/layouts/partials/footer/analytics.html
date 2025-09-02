@@ -1,4 +1,4 @@
-{{- if not (eq hugo.Environment "development") }}
+{{- if and (eq hugo.Environment "production") (.Site.Params.analytics) (.Site.Params.analytics.google) -}}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.analytics.google }}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,4 +9,4 @@
 
     gtag("config", "{{ .Site.Params.analytics.google }}");
 </script>
-{{- end }}
+{{- end -}}
