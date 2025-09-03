@@ -1,22 +1,47 @@
-{{ $styles := 1 }}
-{{ with try ( resources.Get "assets/css/single.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") ) }}
-  {{ with .Err }}
-    {{ $styles = resources.Get "./assets/css/single.style.scss"
-    | toCSS
-    | postCSS (dict "config" "./assets/assets/js/postcss.config.js")
-    }}
-  {{ else }}
-    {{ $styles = resources.Get "assets/css/single.style.scss"
-    | toCSS
-    | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js")
-    }}
+{{/* Resolve a usable PostCSS config path across different run contexts */}}
+{{ $pcCandidates := slice
+  "assets/assets/js/postcss.config.js"
+  "./assets/assets/js/postcss.config.js"
+  "themes/dev-simple-minimal/assets/assets/js/postcss.config.js"
+  "themes/minimalist-simple-dev-theme/assets/assets/js/postcss.config.js"
+  "src/assets/assets/js/postcss.config.js"
+  "src/themes/dev-simple-minimal/assets/assets/js/postcss.config.js"
+  "src/themes/minimalist-simple-dev-theme/assets/assets/js/postcss.config.js"
+}}
+{{ $pcPath := "" }}
+{{ range $pc := $pcCandidates }}
+  {{ if and (eq $pcPath "") (fileExists $pc) }}
+    {{ $pcPath = $pc }}
   {{ end }}
+{{ end }}
 
-  {{- if eq hugo.Environment "development" }}
-      {{ $styles := $styles | fingerprint }}
-      <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
-  {{- else }}
-      {{ $styles = $styles | minify | fingerprint }}
-      <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
-  {{- end }}
-{{- end }}
+{{/* Output (initialize benignly) */}}
+{{ $styles := dict }}
+
+{{/* Single page styles: Get -> toCSS -> postCSS (if config found) else plain toCSS */}}
+{{ $scssGet := try (resources.Get "assets/css/single.style.scss") }}
+{{ if $scssGet.Err }}
+  {{ errorf "SCSS not found at %q: %v" "assets/css/single.style.scss" $scssGet.Err }}
+{{ else }}
+  {{ $scss := $scssGet.Value }}
+  {{ $to := try ($scss | toCSS) }}
+  {{ if $to.Err }}
+    {{ errorf "toCSS failed for %q: %v" "assets/css/single.style.scss" $to.Err }}
+  {{ else }}
+    {{ $css := $to.Value }}
+    {{ $pc := cond (ne $pcPath "") (try ($css | postCSS (dict "config" $pcPath))) (dict "Err" (false)) }}
+    {{ if or (eq $pcPath "") $pc.Err }}
+      {{ $styles = $css }}
+    {{ else }}
+      {{ $styles = $pc.Value }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{- if eq hugo.Environment "development" -}}
+  {{ $styles = $styles | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+{{- else -}}
+  {{ $styles = $styles | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+{{- end -}}
