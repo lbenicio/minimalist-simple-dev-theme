@@ -1,7 +1,7 @@
 name: dev-simple-minimal
 license: GPLv3
 licenselink: "https://github.com/lbenicio/minimalist-simple-dev/LICENSE"
-version: 0.4.0
+version: 0.4.1
 homepage: "https://github.com/lbenicio/minimal-simple-dev"
 demosite: "https://lbenicio.dev"
 tags:
@@ -51,6 +51,13 @@ params:
   ContactURL: http://test.com
   analytics:
     google: UA-123456789-1
+  # umami:
+  #   websiteId: "YOUR-UMAMI-WEBSITE-ID"
+  #   # Optional: explicitly set script host or full src
+  #   # host: "https://umami.example.com"
+  #   # src: "https://umami.example.com/script.js"
+  #   # Optional: restrict to domains (comma-separated)
+  #   # domains: "example.com,sub.example.com"
   social:
     twitter:
       username: twitter
