@@ -1,31 +1,67 @@
-{{ $styles := 1 }}
-{{ $fontawesome := 1 }}
-{{ with try ( resources.Get "assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js") ) }}
-  {{ with .Err }}
-    {{ $fontawesome = resources.Get "./assets/css/vendor/fontawesome.css" | postCSS (dict "config" "./assets/assets/js/postcss.config.js") }}
-    {{ $styles = resources.Get "./assets/css/main.style.scss"
-    | toCSS
-    | postCSS (dict "config" "./assets/assets/js/postcss.config.js")
-    }}
-  {{ else }}
-    {{ $fontawesome = .Value }}
-    {{ $styles = resources.Get "assets/css/main.style.scss"
-    | toCSS
-    | postCSS (dict "config" "./src/assets/assets/js/postcss.config.js")
-    }}
+{{/* Resolve a usable PostCSS config path across different run contexts */}}
+{{ $pcCandidates := slice
+  "assets/assets/js/postcss.config.js"
+  "./assets/assets/js/postcss.config.js"
+  "themes/dev-simple-minimal/assets/assets/js/postcss.config.js"
+  "themes/minimalist-simple-dev-theme/assets/assets/js/postcss.config.js"
+  "src/assets/assets/js/postcss.config.js"
+  "src/themes/dev-simple-minimal/assets/assets/js/postcss.config.js"
+  "src/themes/minimalist-simple-dev-theme/assets/assets/js/postcss.config.js"
+}}
+{{ $pcPath := "" }}
+{{ range $pc := $pcCandidates }}
+  {{ if and (eq $pcPath "") (fileExists $pc) }}
+    {{ $pcPath = $pc }}
   {{ end }}
-
-  {{- if eq hugo.Environment "development" }}
-    {{ $styles := $styles | fingerprint }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
-      crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}">
-  {{- else }}
-    {{ $styles := $styles | minify | fingerprint }}
-    {{ $fontawesome := $fontawesome | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
-      crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}" integrity="{{ $fontawesome.Data.Integrity }}"
-      crossorigin="anonymous">
-  {{- end }}
 {{ end }}
+
+{{/* Outputs (initialize with a benign value) */}}
+{{ $styles := dict }}
+{{ $fontawesome := dict }}
+
+{{/* 1) Font Awesome: Get -> postCSS (src cfg) -> fallback to root cfg -> fallback to raw */}}
+{{ $faGet := try (resources.Get "assets/css/vendor/fontawesome.css") }}
+{{ if $faGet.Err }}
+  {{/* If FA doesn’t exist at all, stop early with a helpful error. */}}
+  {{ errorf "FontAwesome CSS not found at %q: %v" "assets/css/vendor/fontawesome.css" $faGet.Err }}
+{{ else }}
+  {{ $fa := $faGet.Value }}
+  {{ $faPC := cond (ne $pcPath "") (try ($fa | postCSS (dict "config" $pcPath))) (dict "Err" (false)) }}
+  {{ if or (eq $pcPath "") $faPC.Err }}
+    {{/* Last resort: use the raw file (still valid). */}}
+    {{ $fontawesome = $fa }}
+  {{ else }}
+    {{ $fontawesome = $faPC.Value }}
+  {{ end }}
+{{ end }}
+
+{{/* 2) Main styles: Get -> toCSS -> postCSS (src cfg) -> fallback to root cfg -> fallback to plain toCSS */}}
+{{ $scssGet := try (resources.Get "assets/css/main.style.scss") }}
+{{ if $scssGet.Err }}
+  {{ errorf "SCSS not found at %q: %v" "assets/css/main.style.scss" $scssGet.Err }}
+{{ else }}
+  {{ $scss := $scssGet.Value }}
+  {{ $to := try ($scss | toCSS) }}
+  {{ if $to.Err }}
+    {{ errorf "toCSS failed for %q: %v" "assets/css/main.style.scss" $to.Err }}
+  {{ else }}
+    {{ $css := $to.Value }}
+  {{ $pc := cond (ne $pcPath "") (try ($css | postCSS (dict "config" $pcPath))) (dict "Err" (false)) }}
+  {{ if or (eq $pcPath "") $pc.Err }}
+      {{ $styles = $css }}
+    {{ else }}
+      {{ $styles = $pc.Value }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{- if eq hugo.Environment "development" -}}
+  {{ $styles = $styles | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}">
+{{- else -}}
+  {{ $styles = $styles | minify | fingerprint }}
+  {{ $fontawesome = $fontawesome | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}" integrity="{{ $fontawesome.Data.Integrity }}" crossorigin="anonymous">
+{{- end -}}

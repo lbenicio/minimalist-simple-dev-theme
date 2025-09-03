@@ -1,0 +1,10 @@
+{{- if and (eq hugo.Environment "production") (.Site.Params.analytics) (.Site.Params.analytics.umami) -}}
+  {{ with .Site.Params.analytics.umami }}
+    {{ $websiteId := or .websiteId (or .websiteID .id) }}
+    {{ if $websiteId }}
+      {{ $src := cond .src .src (cond .host (printf "%s/script.js" .host) "https://analytics.umami.is/script.js") }}
+      {{ $domains := .domains }}
+      <script async src="{{ $src }}" data-website-id="{{ $websiteId }}"{{ if $domains }} data-domains="{{ $domains }}"{{ end }}></script>
+    {{ end }}
+  {{ end }}
+{{- end -}}

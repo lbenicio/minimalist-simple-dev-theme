@@ -5,6 +5,17 @@ All notable changes to this project are documented in this file.
 This project adheres to "Keep a Changelog" (<https://keepachangelog.com/en/1.0.0/>)
 and follows Semantic Versioning.
 
+## [0.4.1] - 2025-09-01
+
+### Fixed
+
+- Hugo partials: robust PostCSS config detection in `head/css.html` and `head/single.html` to support different run contexts (theme repo, `--source src`, downstream site). Graceful fallback when no config is present.
+- Avoid nil pipeline errors by initializing resources with benign values.
+
+### Changed
+
+- Expose version in `src/hugo.yml` params to surface theme version in site context.
+
 ## [0.4.0] - 2025-09-01
 
 ### Added
