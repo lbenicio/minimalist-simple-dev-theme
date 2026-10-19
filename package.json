@@ -22,7 +22,7 @@
     "postcss": "^8.5.1",
     "postcss-cli": "^12.0.0",
     "postcss-import": "^17.0.1",
-    "cssnano": "^9.5.0",
+    "cssnano": "^9.8.0",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
